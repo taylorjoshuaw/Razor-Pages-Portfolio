@@ -1,0 +1,12 @@
+﻿.wk-sidebar {
+    width: $wk-sidebar-width;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    padding: 15px 15px;
+    outline: dotted orange;
+    background: #777;
+    border-radius: 0% 35% 35% 0%;
+    box-sizing: border-box;
+    position: absolute;
+}

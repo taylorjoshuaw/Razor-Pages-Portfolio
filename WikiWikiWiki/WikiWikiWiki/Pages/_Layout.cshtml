@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WikiWikiWiki - @ViewBag.Title</title>
+    <link rel="stylesheet" href="/style/site.css" />
+</head>
+<body>
+    <div class="wk-main">
+        <div class="wk-sidebar">
+            <div class="wk-logo">
+                <img src="http://via.placeholder.com/150x150" />
+            </div>
+            <ul>
+                <li>Test</li>
+                <li>Another Test</li>
+                <li>Yet Another Test</li>
+            </ul>
+        </div>
+        <div class="wk-content">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
