@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -10,11 +12,13 @@ namespace WikiWikiWiki.Models
     {
         private readonly WkDbContext _wkDbContext;
         private readonly ILogger<ArticleService> _logger;
+        private readonly Random _random;
 
         public ArticleService(WkDbContext wkDbContext, ILogger<ArticleService> logger)
         {
             _wkDbContext = wkDbContext;
             _logger = logger;
+            _random = new Random();
         }
 
         protected async Task<bool> SaveChangesAsync()
@@ -49,6 +53,10 @@ namespace WikiWikiWiki.Models
 
         public async Task<Article> FindAsync(long? id) =>
             id.HasValue ? await Articles.FindAsync(id.Value) : null;
+
+        public async Task<Article> GetRandomAsync() =>
+            await Articles.Skip(_random.Next(await Articles.CountAsync()))
+                          .FirstOrDefaultAsync();
 
         public async Task<bool> RemoveAsync(Article article)
         {

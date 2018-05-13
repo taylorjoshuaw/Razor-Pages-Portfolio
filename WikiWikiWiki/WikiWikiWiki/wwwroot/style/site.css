@@ -48,13 +48,12 @@ table {
 }
 
 .wk-main {
-  position: fixed;
   box-sizing: border-box;
-  width: 100vw;
+  width: 100%;
 }
 
 .wk-sidebar {
-  background: #666;
+  background: #445;
   display: inline-block;
   box-sizing: border-box;
   vertical-align: top;
@@ -65,7 +64,7 @@ table {
 .wk-sidebar p, .wk-sidebar h1, .wk-sidebar h2, .wk-sidebar h3, .wk-sidebar h4, .wk-sidebar h5, .wk-sidebar h6, .wk-sidebar a, .wk-sidebar li {
   color: #FFF;
   text-decoration: none;
-  transition: all 0.75s;
+  transition: all 0.625s;
   font-size: large;
 }
 .wk-sidebar a:hover {
@@ -94,7 +93,7 @@ table {
   display: inline-block;
   box-sizing: border-box;
   vertical-align: top;
-  padding: 1rem;
+  padding: 1.5rem 1rem 1rem 1rem;
   width: 100%;
 }
 
@@ -174,6 +173,10 @@ pre {
   font-size: 11px;
   font-weight: 400;
   line-height: 23px;
+  margin-bottom: 1rem;
+}
+
+dl dd {
   margin-bottom: 1rem;
 }
 

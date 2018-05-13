@@ -7,9 +7,13 @@
     </div>
 </form>
 
-<a asp-page="Edit">Create Article</a>
-<hr />
 <ul>
-    <li>Top 5 Articles</li>
-    <li>Random Article</li>
+    <li><a asp-page="Edit">Create Article</a></li>
+</ul>
+
+<hr />
+
+<ul>
+    <li><a asp-page="Search" asp-route-count="5">Latest 5 Articles</a></li>
+    <li><a asp-page="Article">Random Article</a></li>
 </ul>

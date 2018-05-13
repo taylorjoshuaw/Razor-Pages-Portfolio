@@ -50,7 +50,7 @@ namespace WikiWikiWiki.Pages
                 }
             }
 
-            return RedirectToPage();
+            return Page();
         }
     }
 }

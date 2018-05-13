@@ -22,7 +22,14 @@ namespace WikiWikiWiki.Pages
 
         public async Task OnGetAsync(long? id)
         {
-            Article = await _articleService.FindAsync(id);
+            if (id.HasValue)
+            {
+                Article = await _articleService.FindAsync(id);
+            }
+            else
+            {
+                Article = await _articleService.GetRandomAsync();
+            }
         }
     }
 }
