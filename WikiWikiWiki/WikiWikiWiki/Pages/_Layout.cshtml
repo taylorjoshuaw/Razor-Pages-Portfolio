@@ -9,17 +9,12 @@
 <body>
     <div class="wk-main">
         <div class="wk-sidebar">
-            <div class="wk-logo">
-                <img src="http://via.placeholder.com/150x150" />
-            </div>
-            <ul>
-                <li>Test</li>
-                <li>Another Test</li>
-                <li>Yet Another Test</li>
-            </ul>
+            @await Html.PartialAsync("_SidebarPartial")
         </div>
         <div class="wk-content">
             @RenderBody()
+            <br />
+            <p>&copy; 2018 - <a href="mailto:taylor.joshua88@gmail.com">Joshua William Taylor</a></p>
         </div>
     </div>
 </body>

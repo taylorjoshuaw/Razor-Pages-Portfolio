@@ -1,8 +1,27 @@
 ﻿.wk-content {
-    padding: 15px 15px;
-    top: 0;
-    left: ($wk-sidebar-width + 1vw);
-    outline: dotted green;
+    display: inline-block;
     box-sizing: border-box;
-    position: relative;
+    vertical-align: top;
+    padding: 1rem;
+    width: 100%;
 }
+
+@media (min-width: $wk-md-width) {
+    .wk-content {
+        width: 99% - $wk-sidebar-md;
+    }
+}
+
+@media (min-width: $wk-lg-width) {
+    .wk-content {
+        width: 99% - $wk-sidebar-lg;
+    }
+}
+
+@media (min-width: $wk-xl-width) {
+    .wk-content {
+        width: 99% - $wk-sidebar-xl;
+    }
+}
+
+

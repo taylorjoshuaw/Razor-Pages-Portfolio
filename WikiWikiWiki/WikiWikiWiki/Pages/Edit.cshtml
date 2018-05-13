@@ -1,0 +1,20 @@
+﻿@page
+@model WikiWikiWiki.Pages.EditModel
+@{
+    ViewBag.Title = Model.IsNewArticle ? "Create New Article" : $"Editing {Model.Article.Title}";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<form method="post">
+    <dl>
+        <dt><label asp-for="Article.Title"></label></dt>
+        <dd><input asp-for="Article.Title" class="wk-full-width" /><br /></dd>
+        <dt><label asp-for="Article.ImageUrl"></label></dt>
+        <dd><input asp-for="Article.ImageUrl" class="wk-full-width" /><br /></dd>
+        <dt><label asp-for="Article.Content"></label></dt>
+        <dd><textarea asp-for="Article.Content" cols="80" rows="25"></textarea></dd>
+    </dl>
+
+    <button type="submit" class="wk-btn" name="Article.Id" value="@Model.Article.Id">Submit</button>
+</form>

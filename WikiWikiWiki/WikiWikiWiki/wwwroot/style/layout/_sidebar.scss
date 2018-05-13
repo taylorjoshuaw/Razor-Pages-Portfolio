@@ -1,12 +1,28 @@
 ﻿.wk-sidebar {
-    width: $wk-sidebar-width;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    padding: 15px 15px;
-    outline: dotted orange;
     background: #777;
-    border-radius: 0% 35% 35% 0%;
+    display: inline-block;
     box-sizing: border-box;
-    position: absolute;
+    vertical-align: top;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+}
+
+@media (min-width: $wk-md-width) {
+    .wk-sidebar {
+        width: $wk-sidebar-md;
+        height: 100vh;
+    }
+}
+
+@media (min-width: $wk-lg-width) {
+    .wk-sidebar {
+        width: $wk-sidebar-lg;
+    }
+}
+
+@media (min-width: $wk-xl-width) {
+    .wk-sidebar {
+        width: $wk-sidebar-xl;
+    }
 }

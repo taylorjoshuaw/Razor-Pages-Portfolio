@@ -5,8 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WikiWikiWiki.Data;
+using WikiWikiWiki.Models;
 
 namespace WikiWikiWiki
 {
@@ -21,6 +24,11 @@ namespace WikiWikiWiki
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<WkDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<IArticleService, ArticleService>();
+
             services.AddMvc();
         }
 
