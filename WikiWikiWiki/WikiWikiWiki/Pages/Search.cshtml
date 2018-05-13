@@ -5,14 +5,15 @@
 }
 
 <h1>Search</h1>
-
+<hr />
+<br />
 @if (Model.Articles.Any())
 {
     <dl>
         @foreach (var article in Model.Articles)
         {
             <dt><a asp-page="Article" asp-route-id="@article.Id">@article.Title</a></dt>
-            <dd>@article.Content.Substring(0, Math.Min(200, article.Content.Length))</dd>
+            <dd markdown>@article.Content.Substring(0, Math.Min(350, article.Content.Length))</dd>
         }
     </dl>
 }

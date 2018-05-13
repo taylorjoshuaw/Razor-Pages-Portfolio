@@ -8,7 +8,17 @@
 {
     <h1>@Model.Article.Title</h1>
 
-    <div>@Model.Article.Content</div>
+    @if (!string.IsNullOrWhiteSpace(Model.Article.ImageUrl))
+    {
+        <img src="@Model.Article.ImageUrl" class="wk-article-image" />
+    }
+    else
+    {
+        <hr />
+        <br />
+    }
+
+    <markdown content="Article.Content"></markdown>
 }
 else
 {

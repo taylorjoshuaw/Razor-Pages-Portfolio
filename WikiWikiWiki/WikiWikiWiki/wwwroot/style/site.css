@@ -64,7 +64,7 @@ table {
 .wk-sidebar p, .wk-sidebar h1, .wk-sidebar h2, .wk-sidebar h3, .wk-sidebar h4, .wk-sidebar h5, .wk-sidebar h6, .wk-sidebar a, .wk-sidebar li {
   color: #FFF;
   text-decoration: none;
-  transition: all 0.625s;
+  transition: all 0.5s;
   font-size: large;
 }
 .wk-sidebar a:hover {
@@ -121,8 +121,8 @@ body {
   line-height: 23px;
 }
 
-h1 h2 h3 h4 h5 h6 strong {
-  font-weight: 500;
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: 650;
 }
 
 h1 {
@@ -169,15 +169,34 @@ blockquote {
   margin-bottom: 1rem;
 }
 
-pre {
-  font-size: 11px;
+pre, code {
+  font-family: monospace;
+  font-size: 0.92rem;
   font-weight: 400;
   line-height: 23px;
   margin-bottom: 1rem;
 }
 
+i, em {
+  font-style: italic;
+}
+
+u {
+  text-decoration: underline;
+}
+
 dl dd {
   margin-bottom: 1rem;
+}
+
+ol {
+  list-style: decimal;
+  list-style-position: inside;
+  margin-bottom: 1rem;
+}
+
+.wk-article-image {
+  display: inline-block;
 }
 
 .wk-btn {
@@ -213,4 +232,4 @@ dl dd {
   width: 100% !important;
 }
 
-/*# sourceMappingURL=style/site.css.map */
+/*# sourceMappingURL=site.css.map */
