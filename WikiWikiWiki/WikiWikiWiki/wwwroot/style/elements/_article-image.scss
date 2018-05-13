@@ -1,3 +1,23 @@
 ﻿.wk-article-image {
+    max-width: 100%;
+    max-height: 320px;
     display: inline-block;
+}
+
+@media (min-width: $wk-md-width) {
+    .wk-article-image {
+        max-height: 400px;
+    }
+}
+
+@media (min-width: $wk-lg-width) {
+    .wk-article-image {
+        max-height: 470px;
+    }
+}
+
+@media (min-width: $wk-xl-width) {
+    .wk-article-image {
+        max-height: 540px;
+    }
 }

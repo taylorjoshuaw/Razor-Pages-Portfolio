@@ -12,7 +12,7 @@
     <dl>
         @foreach (var article in Model.Articles)
         {
-            <dt><a asp-page="Article" asp-route-id="@article.Id">@article.Title</a></dt>
+            <dt><a asp-page="Article" asp-route-id="@article.Id">@article.Title</a> <em>- Last Updated @article.LastUpdated (UTC)</em></dt>
             <dd markdown>@article.Content.Substring(0, Math.Min(350, article.Content.Length))</dd>
         }
     </dl>

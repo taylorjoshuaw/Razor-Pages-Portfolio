@@ -7,6 +7,7 @@
 @if (Model.Article != null)
 {
     <h1>@Model.Article.Title</h1>
+    <a asp-page="Edit" asp-route-id="@Model.Article.Id">[Edit]</a>
 
     @if (!string.IsNullOrWhiteSpace(Model.Article.ImageUrl))
     {

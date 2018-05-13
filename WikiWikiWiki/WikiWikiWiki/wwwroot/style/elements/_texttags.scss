@@ -44,6 +44,12 @@ p {
     margin-bottom: 1rem;
 }
 
+blockquote, pre {
+    border: solid #AAA;
+    background-color: #CCC;
+    padding: 1rem;
+}
+
 blockquote {
     font-size: 17px;
     font-weight: 400;
