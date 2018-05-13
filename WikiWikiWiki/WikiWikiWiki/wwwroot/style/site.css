@@ -54,13 +54,24 @@ table {
 }
 
 .wk-sidebar {
-  background: #777;
+  background: #666;
   display: inline-block;
   box-sizing: border-box;
   vertical-align: top;
   width: 100%;
   height: auto;
   padding: 1rem;
+}
+.wk-sidebar p, .wk-sidebar h1, .wk-sidebar h2, .wk-sidebar h3, .wk-sidebar h4, .wk-sidebar h5, .wk-sidebar h6, .wk-sidebar a, .wk-sidebar li {
+  color: #FFF;
+  text-decoration: none;
+  transition: all 0.75s;
+  font-size: large;
+}
+.wk-sidebar a:hover {
+  color: skyblue;
+  font-size: x-large;
+  font-weight: 500;
 }
 
 @media (min-width: 600px) {
@@ -166,6 +177,10 @@ pre {
   margin-bottom: 1rem;
 }
 
+.wk-btn {
+  width: auto;
+}
+
 .wk-inline {
   flex: auto;
 }
@@ -179,11 +194,16 @@ pre {
 }
 
 .wk-logo {
-  outline: dotted orange;
-  margin-bottom: 1em;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+  text-shadow: #3075a5 0px 0px 0px, #3179aa 1px 1px 0px, #337db0 2px 2px 0px, #3581b6 3px 3px 0px, #3686bc 4px 4px 0px, #388ac2 5px 5px 0px, #3a8ec8 6px 6px 0px, #3c92ce 7px 7px 0px, #3d96d4 8px 8px 0px, #3f9ad9 9px 9px 0px, #419fdf 10px 10px 0px, #42a3e5 11px 11px 0px;
+  font-size: 68px;
+  color: white;
+  height: 150px;
+  width: 150px;
+  line-height: 150px;
+  border-radius: 17%;
+  text-align: center;
+  background-color: #44a7eb;
+  margin: 0 auto 1rem auto;
 }
 
 .wk-full-width {
