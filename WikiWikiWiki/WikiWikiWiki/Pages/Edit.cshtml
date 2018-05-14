@@ -29,11 +29,13 @@
         </dd>
     </dl>
 
+    <button type="submit" class="wk-btn">Submit</button>
+
     @if (!Model.IsNewArticle)
     {
         <input hidden asp-for="Article.Id" />
+        <button type="submit" class="wk-btn" asp-page-handler="Delete">Delete</button>
     }
 
-    <button type="submit" class="wk-btn">Submit</button>
     <a asp-page="Article" asp-route-id="@Model.Article.Id">Cancel</a>
 </form>

@@ -52,5 +52,11 @@ namespace WikiWikiWiki.Pages
 
             return Page();
         }
+
+        public async Task<IActionResult> OnPostDeleteAsync()
+        {
+            await _articleService.RemoveAsync(Article);
+            return RedirectToPage("Index");
+        }
     }
 }
