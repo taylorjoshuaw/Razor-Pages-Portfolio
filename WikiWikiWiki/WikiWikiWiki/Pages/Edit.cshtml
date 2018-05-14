@@ -1,0 +1,41 @@
+﻿@page
+@model WikiWikiWiki.Pages.EditModel
+@{
+    ViewBag.Title = Model.IsNewArticle ? "Create New Article" : $"Editing {Model.Article.Title}";
+}
+
+<h1>@ViewBag.Title</h1>
+<hr />
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <dl>
+        <dt><label asp-for="Article.Title"></label></dt>
+        <dd>
+            <input asp-for="Article.Title" class="wk-full-width" />
+            <span asp-validation-for="Article.Title"></span>
+            <br />
+        </dd>
+        <dt><label asp-for="Article.ImageUrl"></label></dt>
+        <dd>
+            <input asp-for="Article.ImageUrl" class="wk-full-width" />
+            <span asp-validation-for="Article.ImageUrl"></span>
+            <br />
+        </dd>
+        <dt><label asp-for="Article.Content"></label></dt>
+        <dd>
+            <textarea asp-for="Article.Content" class="wk-full-width" rows="25"></textarea>
+            <span asp-validation-for="Article.Content"></span>
+        </dd>
+    </dl>
+
+    <button type="submit" class="wk-btn">Submit</button>
+
+    @if (!Model.IsNewArticle)
+    {
+        <input hidden asp-for="Article.Id" />
+        <button type="submit" class="wk-btn" asp-page-handler="Delete">Delete</button>
+    }
+
+    <a asp-page="Article" asp-route-id="@Model.Article.Id">Cancel</a>
+</form>

@@ -1,0 +1,28 @@
+﻿@page
+@model WikiWikiWiki.Pages.ArticleModel
+@{
+    ViewBag.Title = Model.Article?.Title ?? "Article Not Found";
+}
+
+@if (Model.Article != null)
+{
+    <h1>@Model.Article.Title</h1>
+    <a asp-page="Edit" asp-route-id="@Model.Article.Id">[Edit]</a>
+
+    @if (!string.IsNullOrWhiteSpace(Model.Article.ImageUrl))
+    {
+        <br />
+        <img src="@Model.Article.ImageUrl" class="wk-article-image" />
+    }
+    else
+    {
+        <hr />
+        <br />
+    }
+
+    <markdown content="Article.Content"></markdown>
+}
+else
+{
+    <h2>The specified article was not found!</h2>
+}

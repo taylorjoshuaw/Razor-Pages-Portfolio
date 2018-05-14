@@ -1,0 +1,27 @@
+﻿<a asp-page="Index"><div class="wk-logo">Wk3</div></a>
+
+<form method="get" asp-page="Search">
+    <div class="wk-inline-group">
+        <input name="searchString" placeholder="Search..." class="wk-inline" />
+        <button type="submit" class="wk-btn wk-inline">Search</button>
+    </div>
+</form>
+
+<ul>
+    <li><a asp-page="Edit">Create Article</a></li>
+</ul>
+
+<hr />
+
+<ul>
+    <li><a asp-page="Search" asp-route-count="5">Latest 5 Articles</a></li>
+    <li><a asp-page="Article">Random Article</a></li>
+</ul>
+
+<hr />
+
+<ul>
+    <li><a asp-page="Index">About This App...</a></li>
+    <li><a href="https://github.com/taylorjoshuaw/Razor-Pages-Portfolio">
+        Wk3 on GitHub</a></li>
+</ul>

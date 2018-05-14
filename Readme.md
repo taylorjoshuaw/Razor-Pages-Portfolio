@@ -1,96 +1,82 @@
-# Razor Page Portfolio Project
+# WikiWikiWiki (Wk3)
 
-Total Points Possible: 50pts. 
+### We are deployed on Azure!
 
-## Overview
-You will be creating personal portfolio to display a repository of your work that you have created while here
-at Code Fellows, or external projects you are proud of. 
+[https://wikiwikiwiki.azurewebsites.net](https://wikiwikiwiki.azurewebsites.net)
 
-This is a multi-day assignmnet:
+## Description
 
-### Part 1 Milestones
+WikiWikiWiki (Wk3) is a simple wiki platform built in ASP.NET Core, Razor Pages, Entity Framework, Sass, and Markdown. Posts can be created, edited, deleted, searched, and viewed by any users accessing the site. Posts are formatted using Markdown to enable rich text formatting, images, links, etc. 
 
-Create a Razor Page Web App, You may use the "Web Application" template found in a new Visual studio web application. 
+## Screenshot
 
-Scaffold out the beginning features of the site by doing the following:
-1. Delete/remove the precreated Index, About, and Contact .cshtml files
-1. Create your own `Index.cshtml` view page. This should ***not*** be a razor page with a code behind. 
-	1. Don't forget about the `@page` directive at the top
-1. Make your home page have 3 different links on it. Your Github Repo, A portfolio Page, LinkedIn account
-1. Add a models folder and create an interface named `IPortfolioService`. Add the CRUD operation requirements to this interface that will 
-be required for you to "manage" your portfolio. 
-1. Create a new class in your models called `PortfolioService` that implements the above interface. 
-	- Make this service implement and execute the operations with your registered database. 
-1. Register your service with D.I. in your startup class. 
+### Viewing an article
 
+![Article Screenshot](/assets/article.JPG)
 
-### Part 2 Milestones
-- Create a Project landing page (Just a regular .cshtml page, ***not*** a razor page). This will display, at minimum, the following information:
-	1. A description of your project you are displaying
-		1. Name of the Project
-		1. Language used (C#, JS, Python, C++, Java, etc...)
-		1. What does the project do?
-		1. Technologies used (Frameworks, 3rd party additons, etc...)
-	2. An image/icon that represents your project (the next milestone prompts you to do an image upload feature)
-	3. Link to your project
-- Seed your database with default projects. 
-- Create an Admin page (no need to lock it down yet...) as a razor page (with a cshtml, and .cshtml.cs file)
-	- Implement the Create, Read, update, and Delete functionality onto the indvidual projects
-	- Have `OnGet()`, `OnPost` and `OnPostDelete` at minimum defined in your code behind.
-	- Make sure that you are targeting each portfolio by the their Id's
+### Responsive Design
 
-### Part 3 Milestones
-- Incorporate an image uploading feature into your site, and make the image save to 
-an `images` folder in your `wwwroot`.  
-- Add Identity to your application. Create a hidden login page that can be accessed by an admin. (you dont need to create a registration process.)
-	- No need to seed your username/password into the application. Maybe add a username/password into user secrets?
-	- Be sure to share in your comments of your Canvas assignment what the username/password is so that we can test it!
-- Lock your admin page to only be accessed by logged in users. 
+![Responsive Screenshot](/assets/responsive.JPG)
 
-### Part 4 Milestones
-- Using SCSS, add a front end to your applicaiton using the SCSS technique. 
-- Deploy to Azure
-- Create your readme
+### Search
 
-***Unit tests are not required for this application***
+![Search Screenshot](/assets/search.JPG)
 
+## Pages
 
-## ReadMe
-A README is a module consumer's first -- and maybe only -- look into your creation. The consumer wants a module to fulfill their need, so you must explain exactly what need your module fills, and how effectively it does so.
-<br />
-Your job is to
+### /Index
 
-1. tell them what it is (with context)
-2. show them what it looks like in action
-3. show them how they use it
-4. tell them any other relevant details
-<br />
+Displays a static page containing a bit of information about WikiWikiWiki and
+contact information about the author.
 
-This is ***your*** job. It's up to the module creator to prove that their work is a shining gem in the sea of slipshod modules. Since so many developers' eyes will find their way to your README before anything else, quality here is your public-facing measure of your work.
+### /Article
 
-<br /> <br /> Refer to the sample-README in the class repo for an example. 
-- [Reference](https://github.com/noffle/art-of-readme)
+Either displays a specific article if an id is provided as an argument or
+displays a random article from the database if no id is provided.
 
-## Rubric
-- 35pts: Program meets all requirements described in Lab directions
+### /Edit
 
-	Points  | Reasoning | 
-	 ------------ | :-----------: | 
-	35       | Program runs as expected, no exceptions during execution |
-	25       | Program meets all of the functionality requirements described above // Program runs/compiles, Program contains logic/process errors|
-	20       | Program meets most of the functionality requirements descibed above // Program runs/compiles, but throws exceptions during execution |
-	15       | Program missing most of the functionality requirements descibed above // Program runs/compiles |
-	10       | Missing Readme Document // Readme Document does not meet standards |
-	0       | Program does not compile/run. Build Errors // Required naming conventions not met |
-	0       | No Submission |
+Displays a form to create a new article or to edit an existing article if an
+id is provided. The form data is sent to one of two HTTP POST handlers to
+commit the new/edited article to the database or to delete an existing article
+if the delete button was pressed. Posts can be entered in Markdown syntax and
+will be rendered using the site's CSS.
 
-- 15pts: Code meets industry standards
-	- These points are only awardable if you score at minimum a 5/7 on above criteria
+### /Search
 
-	Points  | Reasoning | 
-	 ------------ | :-----------: | 
-	15      | Code meets Industry Standards // methods and variables namings are appropriate // Selective and iterative statements are used appropriately, Fundamentals are propertly executed // Clearly and cleanly commented |
-	10       | syntax for naming conventions are not correct (camelCasing and PascalCasing are used appropriately) // slight errors in use of fundamentals // Missing some comments |
-	5       | Inappropriate naming conventions, and/or inappropriate use of fundamentals // Code is not commented  |
-	0       | No Submission or incomplete submission |
+Displays search results based on a provided searchString in descending
+chronological order. Can optionally provide a count argument to only retrieve
+a specified number of articles (used in the site to implement the "Latest
+5 Articles" feature).
 
+## Data Model
+
+Articles are represented in the database as an Article class for code-first
+migration via Entity Framework. All pages which need to perform lookups or
+modifications to the Article table can do so through the IArticleService
+interface through dependency injection (DI).
+
+## Styling
+
+All styling is created via Sass (SCSS). All SCSS files are contained in the
+~/style/ directory and are compiled to CSS for rendering via the Sass tool.
+Within the style directory there is a base subdirectory containing a user agent
+reset and variables used in the other scripts. The elements subdirectory
+contains styles for specific elements within the site not dealing with the
+overall layout. The layout subdirectory contains styling for major layout
+classes for the sidebar, main content area, and the overall site wrapper class.
+
+## Thanks
+
+Special thanks goes out to the contributors of the TagHelper Samples project 
+which can be found on the [project's website](http://taghelpersamples.azurewebsites.net)
+or on [GitHub](https://github.com/dpaquette/TagHelperSamples).
+
+## Azure Deployment
+
+[https://wikiwikiwiki.azurewebsites.net](https://wikiwikiwiki.azurewebsites.net)
+
+## Change Log
+
+- 5.13.2018 - [Joshua Taylor](mailto:taylor.joshua88@gmail.com) - Initial
+release. No unit testing.

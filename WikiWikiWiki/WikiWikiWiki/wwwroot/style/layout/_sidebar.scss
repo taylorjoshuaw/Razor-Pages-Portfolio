@@ -1,0 +1,41 @@
+﻿.wk-sidebar {
+    background: $wk-sidebar-color;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+
+    p, h1, h2, h3, h4, h5, h6, a, li {
+        color: #FFF;
+        text-decoration: none;
+        transition: all .5s;
+        font-size: large;
+    }
+
+    a:hover {
+        color: skyblue;
+        font-size: x-large;
+        font-weight: 500;
+    }
+}
+
+@media (min-width: $wk-md-width) {
+    .wk-sidebar {
+        width: $wk-sidebar-md;
+        height: 100vh;
+    }
+}
+
+@media (min-width: $wk-lg-width) {
+    .wk-sidebar {
+        width: $wk-sidebar-lg;
+    }
+}
+
+@media (min-width: $wk-xl-width) {
+    .wk-sidebar {
+        width: $wk-sidebar-xl;
+    }
+}

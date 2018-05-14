@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WikiWikiWiki - @ViewBag.Title</title>
+    <link rel="stylesheet" href="/style/site.css" />
+</head>
+<body>
+    <div class="wk-main">
+        <div class="wk-sidebar">
+            @await Html.PartialAsync("_SidebarPartial")
+        </div>
+        <div class="wk-content">
+            @RenderBody()
+            <hr />
+            <p>&copy; 2018 - <a href="mailto:taylor.joshua88@gmail.com">Joshua William Taylor</a></p>
+        </div>
+    </div>
+</body>
+</html>
