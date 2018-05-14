@@ -4,6 +4,10 @@ using System.Threading.Tasks;
 
 namespace WikiWikiWiki.Models
 {
+    /// <summary>
+    /// Interface for any class which provides a means of performing CRUD
+    /// and search operations for articles on some form of data store.
+    /// </summary>
     public interface IArticleService
     {
         Task<bool> AddAsync(Article article);

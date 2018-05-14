@@ -19,6 +19,7 @@ namespace WikiWikiWiki
         {
             IWebHost host = BuildWebHost(args);
 
+            // Try to seed the database if needed
             using (IServiceScope scope = host.Services.CreateScope())
             {
                 IServiceProvider services = scope.ServiceProvider;
@@ -26,6 +27,7 @@ namespace WikiWikiWiki
                 try
                 {
                     Task articleSeeding = SeedArticles.Initialize(services);
+                    // Spinlock while the database is seeding
                     while (!articleSeeding.IsCompleted) { }
                 }
                 catch

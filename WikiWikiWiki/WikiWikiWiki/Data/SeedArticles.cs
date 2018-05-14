@@ -8,8 +8,14 @@ using WikiWikiWiki.Models;
 
 namespace WikiWikiWiki.Data
 {
+    /// <summary>
+    /// Seeds the database with example articles
+    /// </summary>
     public static class SeedArticles
     {
+        /// <summary>
+        /// Example articles to be seeded into an empty Article database table
+        /// </summary>
         public static Article[] ArticleExamples => new Article[]
         {
             new Article()
@@ -270,18 +276,29 @@ dog's back.
             }
         };
 
+        /// <summary>
+        /// Tries to seed example articles into an empty Article database table. Simply
+        /// returns if the Article table has any rows.
+        /// </summary>
+        /// <param name="services">Service provider to be provided from the entry point
+        /// of this web application</param>
+        /// <returns>A Task object used for synchronization</returns>
         public static async Task Initialize(IServiceProvider services)
         {
+            // Create a new WkDbContext instance to interact with the database
             using (WkDbContext context = new WkDbContext(
                 services.GetRequiredService<DbContextOptions<WkDbContext>>()))
             {
+                // If there are any articles, just return
                 if (await context.Articles.AnyAsync())
                 {
                     return;
                 }
 
+                // Ensure that the database has been created
                 await context.Database.EnsureCreatedAsync();
 
+                // Add all of the example articles from this class and save changes
                 await context.Articles.AddRangeAsync(ArticleExamples);
                 await context.SaveChangesAsync();
             }

@@ -20,6 +20,15 @@ namespace WikiWikiWiki.Pages
             _articleService = articleService;
         }
 
+        /// <summary>
+        /// GET /Article/{id?}
+        /// If an id is provided then sets the Article property of the view model
+        /// to the Article entity corresponding to that id via IArticleService.
+        /// Otherwise, retrieve a random article for the view model via the
+        /// IArticleService.
+        /// </summary>
+        /// <param name="id">The id of the specific article to display</param>
+        /// <returns></returns>
         public async Task OnGetAsync(long? id)
         {
             if (id.HasValue)
