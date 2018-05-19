@@ -35,7 +35,11 @@
     {
         <input hidden asp-for="Article.Id" />
         <button type="submit" class="wk-btn" asp-page-handler="Delete">Delete</button>
+        <a asp-page="Article" asp-route-id="@Model.Article.Id" class="wk-btn">Cancel</a>
+    }
+    else
+    {
+        <a asp-page="Index" class="wk-btn">Cancel</a>
     }
 
-    <a asp-page="Article" asp-route-id="@Model.Article.Id">Cancel</a>
 </form>
