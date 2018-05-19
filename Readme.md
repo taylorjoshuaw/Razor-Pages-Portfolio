@@ -47,7 +47,9 @@ will be rendered using the site's CSS.
 Displays search results based on a provided searchString in descending
 chronological order. Can optionally provide a count argument to only retrieve
 a specified number of articles (used in the site to implement the "Latest
-5 Articles" feature).
+5 Articles" feature). Searches on the articles' titles only for scalability
+and relevance reasons (common words could potentially return a lot of
+unwanted results or out of context results)
 
 ## Data Model
 
